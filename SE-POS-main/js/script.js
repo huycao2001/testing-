@@ -1,6 +1,7 @@
 let menu = document.querySelector('#menu-bar');
 let navbar = document.querySelector('.navbar');
 
+
 menu.onclick = () =>{
 
   menu.classList.toggle('fa-times');
@@ -125,7 +126,7 @@ function addItemToCart(title, price, imageSrc) {
 }
 
 
-
+var hello; 
 function updateCartTotal() {
   var cartItemContainer = document.getElementsByClassName('cart-items')[0]
   var cartRows = cartItemContainer.getElementsByClassName('cart-row')
@@ -140,5 +141,52 @@ function updateCartTotal() {
   }
   total = Math.round(total * 100) / 100
   document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+  hello = total;
 }
+
+
+function showPayment(){
+  // show the payment form and hide all the web. 
+  var item = document.getElementById("my_header"); 
+  item.style.display = "none";
+  item = document.getElementById("home");
+  item.style.display = "none";
+
+  item = document.getElementById("speciality");
+  item.style.display = "none";
+
+  item = document.getElementById("burger");
+  item.style.display = "none";
+
+  item = document.getElementById("popular");
+  item.style.display = "none";
+
+  item = document.getElementById("instruction");
+  item.style.display = "none";
+
+  item = document.getElementById("gallery");
+  item.style.display = "none";
+
+  item = document.getElementById("review");
+  item.style.display = "none";
+
+  item = document.getElementById("order_section");
+  item.style.display = "none";
+
+  item = document.getElementById("order_form");
+  item.style.display = "none";
+
+  item = document.getElementById("footer");
+  item.style.display = "none";
+
+  item = document.getElementById("payment");
+  item.style.display = "block";
+
+  document.getElementsByName('amount')[0].placeholder= hello;
+
+}
+
+
+
+ 
 

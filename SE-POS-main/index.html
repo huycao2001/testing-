@@ -8,11 +8,13 @@
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css" type="text/css">
+   <link rel="stylesheet" href="payment_style.css" type="text/css">
 </head>
 <body>
-    <header>
+    <header style="display : block" id = "my_header">
         <a href="#" class="logo"><i class="fas fa-utensils"></i>food</a>
         <div id="menu-bar" class="fas fa-bars"></div>
         <nav class="navbar">
@@ -313,7 +315,7 @@
 
     
     <!-- steps section starts  -->
-    <div class="step-container">
+    <div class="step-container" id ="instruction">
         <h1 class="heading">how it <span>works</span></h1>
         <section class="steps">
             <div class="box">
@@ -463,7 +465,7 @@
     <!-- review section ends -->
 
     <!-- order section starts  -->
-    <section class="order" id="order">
+    <section class="order" id= "order_form" style=" display : block">
         <h1 class="heading"> <span>order</span> now </h1>
         <div class="row">
             <div class="image">
@@ -486,7 +488,7 @@
     <!-- order section ends -->
     
     <!-- Add to cart section start -->
-    <section class="container content-section">
+    <section class="container content-section" id = "order_section" style=" display : block">
         <h2 class="section-header" style="font-size: 2.5rem;">CART</h2>
         <div class="cart-row">
             <span class="cart-item cart-header cart-column">ITEM</span>
@@ -499,14 +501,13 @@
             <strong class="cart-total-title">Total</strong>
             <span class="cart-total-price">$0</span>
         </div>
-        <a href = "payment.html"> <!-- Redirect to payment.html  -->
-            <button class="btn btn-primary btn-purchase"  type="button">PURCHASE</button>
-        </a>    
+            <button class="btn btn-primary btn-purchase"  type="button" onclick = "showPayment()">PURCHASE</button>
+          
     </section>
     <!-- Add to cart section end -->
 
     <!-- footer section  -->
-    <section class="footer">
+    <section class="footer" id = "footer">
         <div class="share">
             <a href="https://www.facebook.com/cuoi.trang.92/" class="btn">facebook</a>
             <a href="#" class="btn">twitter</a>
@@ -524,7 +525,115 @@
     <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
 
     <!-- custom js file link  -->
-    <script src="js/script.js" async></script>
+    <script  type="text/javascript" src="js/script.js" async></script>
+
+
+    <!-- Payment form -->
+    <div id = "payment" style=" display : none" class="wrapper">
+        <h2>Payment Form </h2>
+        <form action="" method="post">
+            <!--Account Information Start-->
+            <h4>Account</h4>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="text" placeholder="Full Name" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+                <div class="input_box">
+                    <input type="text" placeholder="Name on Card" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="email" placeholder="Email Address" required class="name">
+                    <i class="fa fa-envelope icon"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="text" placeholder="Address" required class="name">
+                    <i class="fa fa-map-marker icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="text" placeholder="City" required class="name">
+                    <i class="fa fa-institution icon"></i>
+                </div>
+            </div>
+            <!--Account Information End-->
+
+
+            <!--DOB & Gender Start-->
+            <div class="input_group">
+                <div class="input_box">
+                    <h4>Date Of Birth</h4>
+                    <input type="text" placeholder="DD" required class="dob">
+                    <input type="text" placeholder="MM" required class="dob">
+                    <input type="text" placeholder="YYYY" required class="dob">
+                </div>
+                <div class="input_box">
+                    <h4>Gender</h4>
+                    <input type="radio" name="gender" class="radio" id="b1" checked>
+                    <label for="b1">Male</label>
+                    <input type="radio" name="gender" class="radio" id="b2">
+                    <label for="b2">Female</label>
+                </div>
+            </div>
+            <!--DOB & Gender End-->
+
+
+            <!--Payment Details Start-->
+            <div class="input_group">
+                <div class="input_box">
+                    <h4>Payment Details</h4>
+                    <input type="radio" name="pay" class="radio" id="bc1" checked>
+                    <label for="bc1"><span>
+                            <i class="fa fa-cc-visa"></i>Credit Card</span></label>
+                    <input type="radio" name="pay" class="radio" id="bc2">
+                    <label for="bc2"><span>
+                            <i class="fa fa-cc-paypal"></i>Paypal</span></label>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="tel" name="" class="name" placeholder="Card Number 1111-2222-3333-4444" required>
+                    <i class="fa fa-credit-card icon"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="tel" name="" class="name" placeholder="Card CVC 632" required>
+                    <i class="fa fa-user icon"></i>
+                </div>
+            </div>
+            <div class="input_group">
+                <div class="input_box">
+                    <div class="input_box">
+                        <input type="number" placeholder="Exp Month" required class="name">
+                        <i class="fa fa-calendar icon" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="input_box">
+                    <input type="number" placeholder="Exp Year" required class="name">
+                    <i class="fa fa-calendar-o icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="input_box">
+                <input name = "amount" readonly type="number" placeholder = "100" required class="name">
+                <i class="fa fa-dollar icon" aria-hidden="true"></i>
+            </div>
+            <!--Payment Details End-->
+
+            <div class="input_group">
+                <div class="input_box">
+                    <button type="submit">PAY NOW</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
 </body>
 
 <script src="/socket.io/socket.io.js"> </script>
